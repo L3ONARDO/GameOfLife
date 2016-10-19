@@ -33,6 +33,7 @@ public class Cell extends JLabel implements MouseListener {
         numNeighbours = n;
         this.setSize(new Dimension(10, 10));
         this.setOpaque(true);
+        this.addMouseListener(this);
     }
     
     /*This Changes the alive/dead state of the cell*/
