@@ -48,6 +48,7 @@ public class GameOfLife extends JFrame {
         //Create a start button
         startButton.addActionListener((ActionEvent e) -> {
             //blah
+            nextGeneration();
         });
 
         frame.add(panel);//Add grid
@@ -144,13 +145,17 @@ public class GameOfLife extends JFrame {
     public void nextGeneration(){                           
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
-                grid[j][i].update();// Updates the attribute "nextgen" of cell
+                try{
+                    grid[j][i].update();// Updates the attribute "nextgen" of cell
+                }catch(ArrayIndexOutOfBoundsException e){}
             }
         }
         
         for(int i = 0; i < row; i++){// Assigns "nextgen"'s value to "alive"
             for(int j = 0; j < col; j++){
-                grid[j][i].setAlive(grid[j][i].getNextGen());
+                try{
+                    grid[j][i].setAlive(grid[j][i].getNextGen());
+                }catch(ArrayIndexOutOfBoundsException e){}
             }
         }
         
