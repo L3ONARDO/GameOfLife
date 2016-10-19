@@ -32,16 +32,16 @@ public class GameOfLife extends JFrame {
     public void draw(){
         JFrame frame = new JFrame("Game_of_Life");//GUI
         JButton startButton = new JButton(("Start"));//Start button
-        GridLayout gridLayout = new GridLayout(row, col, 2, 2);
-        JPanel gridPanel = new JPanel();
+        GridLayout gridLayout = new GridLayout(row, col, 2, 2);//Grid holder
+        JPanel panel = new JPanel();
 
-        gridPanel.setLayout(gridLayout);
+        panel.setLayout(gridLayout);
 
         // Add all cells in the grid to the panel
         for (int r = 0; r < row; r++) {
             for (int c = 0; c < col; c++) {
                 Cell cell = grid[r][c];
-                gridPanel.add(cell);
+                panel.add(cell);
             }
         }
         
@@ -50,7 +50,7 @@ public class GameOfLife extends JFrame {
             //blah
         });
 
-        frame.add(gridPanel);//Add grid
+        frame.add(panel);//Add grid
         frame.add(startButton, BorderLayout.SOUTH);//put the button down
         frame.setSize(800, 800);
         frame.setVisible(true);
